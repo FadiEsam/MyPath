@@ -1,0 +1,51 @@
+
+# ==========================================
+# MyPath - GitHub Exclusions
+# ==========================================
+
+# Private system information
+system_info.txt
+Tree_structure.txt
+
+# Exclude files whose names contain "note"
+*note*
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# Credentials and private keys
+*.pem
+*.key
+*.p12
+*.pfx
+secrets/
+credentials/
+
+# Logs and temporary files
+*.log
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
+
+# Operating system files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE and editor settings
+.idea/
+.vscode/
+*.code-workspace
+
+# Dependencies
+/vendor/
+/node_modules/
+
+# Cache and generated files
+/cache/
+/tmp/
+/temp/
