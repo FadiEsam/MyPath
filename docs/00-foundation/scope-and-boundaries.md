@@ -79,7 +79,7 @@ The system is intended to support:
 
 - Starting, pausing, resuming, and ending work sessions.
 - Recording time against the appropriate activity or project phase.
-- Recording work performed outside the platform when necessary.
+- Recording work performed outside the platform.
 - Reviewing recorded sessions and correcting mistakes under defined rules.
 - Calculating time totals from stored work sessions.
 

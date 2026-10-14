@@ -235,6 +235,10 @@ The initial focus is on organizing professional development and freelance work.
 - An automatic employee-monitoring or productivity-surveillance tool.
 - A replacement for professional accounting software.
 
+The platform's primary purpose is to support personal career development, skill tracking, learning activities, project management, work-time tracking, and freelance business performance analysis. It is designed primarily as a personal development and work-management platform, not as a platform for finding clients or connecting clients with freelancers.
+
+The system may record real-client projects, freelance services, invoices, revenue, expenses, and profitability to help the user manage and evaluate their own work. However, these features do not make the platform a freelance marketplace.
+
 Additional features may be considered later if they support the project's main goals.
 
 ## 8. Development Approach

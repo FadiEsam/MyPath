@@ -18,9 +18,11 @@
     - [9.1 Framework Adoption](#91-framework-adoption)
     - [9.2 Migration Rules](#92-migration-rules)
     - [9.3 Compatibility](#93-compatibility)
+      -[9.2.1 Recommended Migration Workflow](#921-recommended-migration-workflow)
+      -[9.2.2 One Technology Change at a Time](#922-one-technology-change-at-a-time)
+      -[9.2.3 Migration Principles](#923-migration-principles)
   - [10. Documentation and Traceability](#10-documentation-and-traceability)
   - [11. Testing and Maintainability](#11-testing-and-maintainability)
-  - [12. Architecture Decision Authority](#12-architecture-decision-authority)
 
 # Architecture Principles
 
@@ -186,16 +188,62 @@ These changes should be incremental where practical.
 
 ### 9.2 Migration Rules
 
+Technology migrations must be performed incrementally, with a clear separation between the current stable version and the new version under development. The goal is to simplify troubleshooting, preserve existing functionality, and reduce the risk of breaking the entire system.
+
 Before introducing a new technology:
 
-1. Identify the problem it solves.
-2. Review the affected components and dependencies.
-3. Decide whether the current implementation can be maintained or improved more simply.
-4. Define a migration approach.
-5. Preserve existing functionality and data.
-6. Update documentation and tests.
+1. **Identify the reason for migration.** Explain the problem the new technology solves and why improving the existing implementation is insufficient or less suitable.
+2. **Review the affected components.** Identify dependencies, related modules, existing functionality, database interactions, and potential compatibility issues.
+3. **Define the migration scope.** Specify the components that will change, the expected results, and the tests required to verify the migration.
+4. **Preserve the current stable version.** Save a reliable version of the project before making changes. Use Git branches, tags, or another suitable version-control method to ensure that the previous version remains recoverable.
+5. **Create a separate version for the migration.** Develop and test the new technology in an isolated branch or environment without modifying the stable version directly.
+6. **Implement the migration incrementally.** Change only the components required for the selected technology and preserve existing behavior wherever possible.
+7. **Test and troubleshoot.** Compare the new implementation against the stable version, identify regressions, and resolve problems using the known-working implementation as a reference.
+8. **Verify the complete system.** Run the required tests and confirm that all affected features, integrations, database operations, and existing workflows continue to work correctly.
+9. **Adopt the new version.** Once the migration passes the required checks, designate the new version as the stable version and update the project documentation.
+10. **Remove obsolete versions only when appropriate.** Delete old branches, temporary environments, or duplicate files only when they are no longer needed, the new version is stable, and the previous version remains recoverable through version control or backups.
 
-Do not introduce unnecessary abstractions solely to prepare for hypothetical future changes.
+#### 9.2.1 Recommended Migration Workflow
+
+The standard migration process follows these steps:
+
+1. **Stable Version (v1):** Preserve the last known-working version before starting the migration.
+2. **New Version (v2):** Create a separate development branch or environment based on v1.
+3. **Migration:** Implement the selected technology change in v2 while keeping v1 unchanged.
+4. **Comparison and Troubleshooting:** Test v2 against v1 to identify unexpected behavior. Use v1 as a reference when investigating and resolving problems.
+5. **System Validation:** Verify that the complete application works correctly, including existing functionality and any affected integrations.
+6. **Version Adoption:** Promote v2 to the new stable version only after all required checks pass.
+7. **Cleanup:** Remove obsolete development branches or temporary files if they are no longer useful. Keep an appropriate recovery point for the previous stable version.
+
+If validation fails, v1 remains the reliable reference, and the migration continues in v2 until the issues are resolved. If necessary, development can return to v1 while the migration is reviewed or corrected.
+
+#### 9.2.2 One Technology Change at a Time
+
+**Only one major technology migration should be performed at a time.** Do not combine independent technology migrations into a single change.
+
+For example, do not migrate the backend from PHP to Laravel while simultaneously replacing the frontend built with HTML, CSS, and JavaScript with React.
+
+Instead, follow a separate migration process for each change:
+
+- **Migration A:** Introduce Laravel while keeping the existing frontend technologies unchanged. Test the backend migration and confirm that the application continues to work correctly.
+- **Migration B:** After Laravel is stable, consider migrating the frontend to React in a separate version and repeat the migration workflow.
+
+This separation makes it easier to identify the source of errors, isolate compatibility issues, compare implementations, and roll back individual changes without unnecessarily affecting unrelated components.
+
+A technology migration should not begin until the previous migration has been validated and accepted as stable.
+
+#### 9.2.3 Migration Principles
+
+- Preserve a recoverable, known-working version before every migration.
+- Keep the stable version separate from the version under development.
+- Make small, traceable changes with clearly defined scopes.
+- Preserve existing functionality, data integrity, and application behavior.
+- Use the previous stable implementation as a reference when troubleshooting.
+- Validate each migration before beginning another major technology change.
+- Update architecture documentation, dependencies, configuration, and tests to reflect the new implementation.
+- Avoid unnecessary abstractions or technology changes that do not provide a clear benefit.
+
+The objective is not to prevent future technology changes, but to make each change controlled, testable, reversible, and independently verifiable.
 
 ### 9.3 Compatibility
 
@@ -230,10 +278,3 @@ Avoid unnecessary dependencies, duplicated business logic, and large files that 
 
 A change is not considered verified simply because the code has been written. Relevant tests must be executed and their results reported accurately.
 
-## 12. Architecture Decision Authority
-
-This document defines general principles.
-
-Specific technical choices, approved exceptions, and major architecture changes should be recorded in `docs/09-decisions/`.
-
-If two requirements or decisions conflict, the conflict must be identified and resolved rather than silently choosing one.
