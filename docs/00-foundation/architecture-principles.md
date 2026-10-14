@@ -17,10 +17,10 @@
   - [9. Technology Evolution](#9-technology-evolution)
     - [9.1 Framework Adoption](#91-framework-adoption)
     - [9.2 Migration Rules](#92-migration-rules)
+      - [9.2.1 Recommended Migration Workflow](#921-recommended-migration-workflow)
+      - [9.2.2 One Technology Change at a Time](#922-one-technology-change-at-a-time)
+      - [9.2.3 Migration Principles](#923-migration-principles)
     - [9.3 Compatibility](#93-compatibility)
-      -[9.2.1 Recommended Migration Workflow](#921-recommended-migration-workflow)
-      -[9.2.2 One Technology Change at a Time](#922-one-technology-change-at-a-time)
-      -[9.2.3 Migration Principles](#923-migration-principles)
   - [10. Documentation and Traceability](#10-documentation-and-traceability)
   - [11. Testing and Maintainability](#11-testing-and-maintainability)
 

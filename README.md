@@ -12,9 +12,17 @@ The project aims to bring these activities together in one place, making it easi
 - [2. The Problem MyPath Addresses](#2-the-problem-mypath-addresses)
 - [3. Project Goals](#3-project-goals)
 - [4. Main Features](#4-main-features)
+  - [4.1. Skills Management](#41-skills-management)
+  - [4.2. Courses and Learning](#42-courses-and-learning)
+  - [4.3. Projects and Tasks](#43-projects-and-tasks)
+  - [4.4. Time Tracking](#44-time-tracking)
+  - [4.5. Freelance Services and Client Projects](#45-freelance-services-and-client-projects)
+  - [4.6. Financial Records and Analysis](#46-financial-records-and-analysis)
 - [5. How MyPath Works](#5-how-mypath-works)
 - [6. Target Users](#6-target-users)
 - [7. Project Scope](#7-project-scope)
+  - [Included in the Intended Scope](#included-in-the-intended-scope)
+  - [Not a Primary Goal of the Initial Version](#not-a-primary-goal-of-the-initial-version)
 - [8. Development Approach](#8-development-approach)
 - [9. Technology Stack](#9-technology-stack)
 - [10. Project Structure](#10-project-structure)
@@ -22,6 +30,7 @@ The project aims to bring these activities together in one place, making it easi
 - [12. Future Development](#12-future-development)
 - [13. Security and Privacy](#13-security-and-privacy)
 - [14. License](#14-license)
+
 
 ---
 

@@ -47,7 +47,7 @@
 
 ## 1. Purpose
 
-This document defines the main terms used in Freelance & Personal Progress OS.
+This document defines the main terms used in MyPath.
 
 Use these definitions consistently in documentation, database design, API contracts, and source code.
 
